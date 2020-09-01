@@ -1,0 +1,8 @@
+<div *ngFor="let auction of auctions">
+    <a routerLink="/auction/{{auction.Id}}">
+        <div class="row border rounded" style="margin:10px; height: 100px;">
+            <img src="assets/placeholder-avatar.jpg" width="100px" height="100px">
+            {{auction.Title}}
+        </div>
+    </a>
+</div>
