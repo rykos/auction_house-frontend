@@ -21,5 +21,8 @@
     "@environments/*": [
       "src/environments/*"
     ]
-  }
+  },
+  "typeRoots": [
+    "node_modules/@types"
+  ],
 }

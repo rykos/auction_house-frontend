@@ -23,6 +23,9 @@
       "@environments/*": [
         "src/environments/*"
       ]
-    }
+    },
+    "types": [
+      "jasmine"
+    ]
   }
-} 
+}

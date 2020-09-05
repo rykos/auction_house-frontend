@@ -3,7 +3,10 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": [],
+    "types": [
+      "node",
+      "jest"
+    ],
     "baseUrl": "./",
     "paths": {
       "@app/*": [
@@ -19,6 +22,10 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "src/**/*.ts"
+  ],
+  "types": [
+    "jasmine"
   ]
 }
