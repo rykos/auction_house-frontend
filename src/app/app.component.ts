@@ -7,8 +7,7 @@ import { User } from './_models/User';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: [
-    './app.component.css',
-    './bootstrap/css/bootstrap.css'
+    './app.component.css'
   ]
 })
 export class AppComponent {

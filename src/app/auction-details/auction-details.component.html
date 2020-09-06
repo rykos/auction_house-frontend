@@ -1,1 +1,13 @@
-<p>auction-details works!</p>
+<div *ngIf="auction">
+    <img src="assets/placeholder-avatar.jpg" alt="Card image cap" height="300px" width="300px">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{auction.title}}</h5>
+            <p class="card-text">{{auction.description}}</p>
+            <p>{{auction.price}}</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">{{auction.creationTime | date: 'medium'}}</small>
+        </div>
+    </div>
+</div>

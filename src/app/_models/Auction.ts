@@ -3,4 +3,5 @@ export interface Auction {
     Title: string;
     Description: string;
     Price: number;
+    CreationTime: Date;
 }

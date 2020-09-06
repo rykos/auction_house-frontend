@@ -1,9 +1,11 @@
 import { AuthenticationService } from './../_services/authentication.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
-import { first } from 'rxjs/operators';
+import { first, tap, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -46,16 +48,21 @@ export class LoginComponent implements OnInit {
     }
     this.loading = true;
     this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
-      .pipe(first())
-      .subscribe({
+      .pipe(
+        first(),
+      ).subscribe({
         next: () => {
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
           this.router.navigate([returnUrl]);
         },
-        error: error => {
-          this.error = error;
-          this.loading = false;
-        }
+        error: err => this.handleError(err)
       });
+  }
+
+  handleError(error) {
+    this.loading = false;
+    if (error.status === 401) {
+      this.error = error.error.msg;
+    }
   }
 }

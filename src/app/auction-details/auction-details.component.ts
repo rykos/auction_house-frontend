@@ -1,6 +1,10 @@
+import { Route } from '@angular/compiler/src/core';
+import { HttpClient } from '@angular/common/http';
+import { Auction } from './../_models/Auction';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-auction-details',
@@ -8,11 +12,15 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./auction-details.component.css']
 })
 export class AuctionDetailsComponent implements OnInit {
-
-  constructor() { }
+  auction: Auction;
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this.route.params.subscribe(params => {
+      this.httpClient.get<Auction>(`${environment.apiUrl}/auctions/${params['id']}`).subscribe(x => {
+        this.auction = x;
+      });
+    });
   }
 
 }

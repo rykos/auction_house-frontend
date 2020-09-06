@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MyauctionsComponent } from './myauctions/myauctions.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AuctionsComponent,
     AuctionDetailsComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    MyauctionsComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
