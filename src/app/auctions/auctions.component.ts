@@ -65,7 +65,6 @@ export class AuctionsComponent implements OnInit {
       if (newId < 0) {
         return;
       }
-      this.currentId = newId;
       var skip: number = newId * 20;
       this.getAuctions(skip).subscribe(x => {
         if (x.length > 0) {
