@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyauctionsComponent } from './myauctions/myauctions.component';
 import { RegisterComponent } from './register/register.component';
+import { MyaccountComponent } from './myaccount/myaccount.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     MyauctionsComponent,
     RegisterComponent,
+    MyaccountComponent,
   ],
   imports: [
     BrowserModule,

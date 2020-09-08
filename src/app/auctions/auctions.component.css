@@ -1,0 +1,84 @@
+.auctionItem{
+    /* AuctionItem */
+    width: 1258px;
+    height: 148px;
+
+    background: #C1C1C1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+
+    filter: drop-shadow(6px 10px 7px rgba(0, 0, 0, 0.25));
+}
+
+
+.auctionItemAvatar{
+    position: absolute;
+    left: 1.67%;
+    right: 89.11%;
+    top: 14.19%;
+    bottom: 13.51%;
+
+    border: 1px solid #767676;
+    border-radius: 16px;
+}
+
+.auctionItemName{
+    position: absolute;
+    left: 10.89%;
+    right: 53.97%;
+    top: 0%;
+    bottom: 0%;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;    
+}
+
+.auctionItemPrice{
+    position: absolute;
+    left: 47.22%;
+    right: 29.89%;
+    top: 0%;
+    bottom: 0%;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+
+
+
+.auctionItemDate{
+    position: absolute;
+    left: 71.3%;
+    right: 3.5%;
+    top: 0%;
+    bottom: 0%;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+

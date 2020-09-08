@@ -23,4 +23,8 @@ export class AuctionDetailsComponent implements OnInit {
     });
   }
 
+  buy(){
+    console.log(`Im buying item id=${this.auction.id}`);
+  }
+
 }

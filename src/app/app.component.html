@@ -11,8 +11,8 @@
             <a class="nav-item nav-link btn btn-primary dropdown-toggle" style="align-content: space-between;"
               data-toggle="dropdown" aria-haspopup="true">{{currentUser.username}}</a>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Account</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="cursor: pointer;">
+              <a class="dropdown-item" routerLink="/account">Account</a>
               <a class="dropdown-item" routerLink='/myauctions'>My Auctions</a>
               <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>

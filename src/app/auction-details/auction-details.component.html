@@ -1,10 +1,27 @@
 <div *ngIf="auction">
-    <img src="assets/placeholder-avatar.jpg" alt="Card image cap" height="300px" width="300px">
+    <div class="row">
+        <div class="col-md-auto">
+            <img src="assets/placeholder-avatar.jpg" alt="Card image cap" height="300px" width="300px">
+        </div>
+        <div class="col" style="display: flex;">
+
+            <div class="container-fluid" style="display: flex;">
+                <div id="price" class="row" style="width: 200px; margin: auto; margin-right: 0;">
+                    <div class="col-4-auto" style="padding: 0px;">
+                        <span class="input-group-text">{{auction.price}}$</span>
+                    </div>
+                    <div class="col" style="padding: 0px; width: 200px;">
+                        <button class="btn btn-warning container" (click)="buy()">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">{{auction.title}}</h5>
             <p class="card-text">{{auction.description}}</p>
-            <p>{{auction.price}}</p>
         </div>
         <div class="card-footer">
             <small class="text-muted">{{auction.creationTime | date: 'medium'}}</small>

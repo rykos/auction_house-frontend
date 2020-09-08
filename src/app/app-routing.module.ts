@@ -1,3 +1,4 @@
+import { MyaccountComponent } from './myaccount/myaccount.component';
 import { RegisterComponent } from './register/register.component';
 import { MyauctionsComponent } from './myauctions/myauctions.component';
 import { AuthGuard } from './_helpers/auth.guard';
@@ -10,14 +11,15 @@ import { AuctionDetailsComponent } from './auction-details/auction-details.compo
 import { AuctionsComponent } from './auctions/auctions.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: "auctions", pathMatch: "full" },
+  { path: '', redirectTo: "auctions/1", pathMatch: "full" },
 
-  { path: "auctions", component: AuctionsComponent },
+  { path: "auctions/:id", component: AuctionsComponent },
   { path: "myauctions", component: MyauctionsComponent, canActivate: [AuthGuard] },
   { path: "auction/:id", component: AuctionDetailsComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'account', component: MyaccountComponent, canActivate: [AuthGuard] },
 
   { path: '**', redirectTo: '' }
 ];
