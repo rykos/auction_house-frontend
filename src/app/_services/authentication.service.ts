@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '@app/_models/User';
@@ -14,7 +15,7 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -35,9 +36,9 @@ export class AuthenticationService {
     console.log("register");
     return this.http.post<User>(`${environment.apiUrl}/Authenticate/register`, { email, username, password }).pipe(map(user => {
       console.log("User created");
-      localStorage.setItem('currentUser', JSON.stringify(user))
-      this.currentUserSubject.next(user);
-      return user;
+      this.login(username, password).subscribe(x => {
+        this.router.navigate([""]);
+      });
     }));
   }
 

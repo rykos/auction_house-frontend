@@ -1,9 +1,9 @@
 <div *ngFor="let auction of auctions">
     <a routerLink="/auction/{{auction.id}}">
         <div class="row auctionItem" style="margin:30px; height: 100px;">
-            <img src="/assets/placeholder-avatar.jpg" height="75px" class="auctionItemAvatar">
+            <img src="{{imageFrom(auction.icon)}}" height="75px" width="75px" class="auctionItemAvatar">
             <div class="auctionItemName">{{auction.title}} {{auction.id}}</div>
-            <div class="auctionItemPrice">{{auction.price}}</div>
+            <div class="auctionItemPrice">{{auction.price}}$</div>
             <div class="auctionItemDate">{{timePassed(auction.creationTime)}}</div>
         </div>
     </a>

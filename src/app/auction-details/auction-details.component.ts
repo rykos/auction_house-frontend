@@ -27,4 +27,10 @@ export class AuctionDetailsComponent implements OnInit {
     console.log(`Im buying item id=${this.auction.id}`);
   }
 
+  imageFrom(img: string){
+    if(!img){
+      return `/assets/placeholder-avatar.jpg`;
+    }
+    return `data:image/png;base64,${img}`
+  }
 }

@@ -1,3 +1,4 @@
+import { AuctionCreateComponent } from './auction-create/auction-create.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { RegisterComponent } from './register/register.component';
 import { MyauctionsComponent } from './myauctions/myauctions.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "auctions/:id", component: AuctionsComponent },
   { path: "myauctions", component: MyauctionsComponent, canActivate: [AuthGuard] },
   { path: "auction/:id", component: AuctionDetailsComponent },
+  { path: "create", component: AuctionCreateComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

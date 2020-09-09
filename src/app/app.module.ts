@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MyauctionsComponent } from './myauctions/myauctions.component';
 import { RegisterComponent } from './register/register.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
+import { AuctionCreateComponent } from './auction-create/auction-create.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
     MyauctionsComponent,
     RegisterComponent,
     MyaccountComponent,
+    AuctionCreateComponent,
   ],
   imports: [
     BrowserModule,

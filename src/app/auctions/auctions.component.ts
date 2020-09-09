@@ -78,4 +78,11 @@ export class AuctionsComponent implements OnInit {
   getAuctions(skip: number): Observable<Auction[]> {
     return this.httpClient.get<Auction[]>(`${environment.apiUrl}/auctions/${skip}/20`);
   }
+
+  imageFrom(img: string){
+    if(!img){
+      return `/assets/placeholder-avatar.jpg`;
+    }
+    return `data:image/png;base64,${img}`
+  }
 }

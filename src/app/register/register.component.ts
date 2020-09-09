@@ -46,7 +46,6 @@ export class RegisterComponent implements OnInit {
           err = err.error;
           if (err.errors) {
             if (err.errors.Email) {
-              console.log(err.errors.Email[0]);
               this.error = err.errors.Email[0];
             }
           }
