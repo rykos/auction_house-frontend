@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Observable } from 'rxjs';
+import { IMG_UTILS } from '@app/_utils/image-utils';
 
 @Component({
   selector: 'app-auctions',
@@ -17,6 +18,7 @@ import { Observable } from 'rxjs';
 export class AuctionsComponent implements OnInit {
   auctions: Auction[];
   currentId: number;
+  imageFrom = IMG_UTILS.imageFrom;
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -77,12 +79,5 @@ export class AuctionsComponent implements OnInit {
 
   getAuctions(skip: number): Observable<Auction[]> {
     return this.httpClient.get<Auction[]>(`${environment.apiUrl}/auctions/${skip}/20`);
-  }
-
-  imageFrom(img: string){
-    if(!img){
-      return `/assets/placeholder-avatar.jpg`;
-    }
-    return `data:image/png;base64,${img}`
   }
 }

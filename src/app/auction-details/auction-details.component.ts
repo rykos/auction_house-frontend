@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { RouterModule, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 import { environment } from '@environments/environment';
+import { IMG_UTILS } from '@app/_utils/image-utils';
 
 @Component({
   selector: 'app-auction-details',
@@ -13,6 +14,7 @@ import { environment } from '@environments/environment';
 })
 export class AuctionDetailsComponent implements OnInit {
   auction: Auction;
+  imageFrom: any = IMG_UTILS.imageFrom;
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -27,10 +29,4 @@ export class AuctionDetailsComponent implements OnInit {
     console.log(`Im buying item id=${this.auction.id}`);
   }
 
-  imageFrom(img: string){
-    if(!img){
-      return `/assets/placeholder-avatar.jpg`;
-    }
-    return `data:image/png;base64,${img}`
-  }
 }
