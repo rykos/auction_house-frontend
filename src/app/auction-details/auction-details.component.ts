@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Auction } from './../_models/Auction';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { RouterModule, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
+import { RouterModule, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { environment } from '@environments/environment';
 import { IMG_UTILS } from '@app/_utils/image-utils';
 
@@ -15,7 +15,7 @@ import { IMG_UTILS } from '@app/_utils/image-utils';
 export class AuctionDetailsComponent implements OnInit {
   auction: Auction;
   imageFrom: any = IMG_UTILS.imageFrom;
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -25,8 +25,8 @@ export class AuctionDetailsComponent implements OnInit {
     });
   }
 
-  buy(){
-    console.log(`Im buying item id=${this.auction.id}`);
+  buy() {
+    this.router.navigate(["/buy", this.auction.id]);
   }
 
 }

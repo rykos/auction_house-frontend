@@ -5,27 +5,25 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthenticationService } from '@app/_services/authentication.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private route: Router) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(catchError(err => {
       if (err.status === 401) {
-        if (this.authenticationService.currentUserValue) {
+        if (this.authenticationService.currentUserValue) {//user was logged in
           this.authenticationService.logout();
           location.reload();
         }
-        else {
-          return throwError(err);
-        }
+        this.route.navigate(["/login"], { queryParams: { returnUrl: location.pathname } });
       }
-      //const error = err.error.msg || err.statusText;
       return throwError(err);
     }));
   }

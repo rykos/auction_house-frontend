@@ -1,7 +1,7 @@
 <div *ngFor="let auction of auctions">
     <a routerLink="/auction/{{auction.id}}">
         <div class="row auctionItem" style="margin:30px; height: 100px;">
-            <img src="{{imageFrom(auction.icon)}}" height="75px" width="75px" class="auctionItemAvatar">
+            <img src="{{imageFrom(auction.iconId)}}" height="75px" width="75px" class="auctionItemAvatar">
             <div class="auctionItemName">{{auction.title}} {{auction.id}}</div>
             <div class="auctionItemPrice">{{auction.price}}$</div>
             <div class="auctionItemDate">{{timePassed(auction.creationTime)}}</div>
@@ -9,7 +9,11 @@
     </a>
 </div>
 <div class="container" *ngIf="!auctions">
-    <div class="lds-ring" style="margin: auto;"><div></div><div></div><div></div><div></div></div>
+    <div class="flexbox-centering">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
 </div>
 <div class="row">
     <div style="margin: auto;">

@@ -1,5 +1,5 @@
 import { Auction } from './../_models/Auction';
-import { map } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
@@ -19,6 +19,7 @@ export class AuctionsComponent implements OnInit {
   auctions: Auction[];
   currentId: number;
   imageFrom = IMG_UTILS.imageFrom;
+  
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,11 +27,17 @@ export class AuctionsComponent implements OnInit {
       var id: number = +params['id'] - 1;
       var skip: number = id * 20;
       this.currentId = id;
-      this.getAuctions(skip).subscribe(x => {
-        if (x) {
-          this.auctions = x;
+      this.getAuctions(skip).subscribe(
+        x => {
+          if (x.length > 0) {
+            this.auctions = x;
+            console.log(this.auctions);
+          }
+        },
+        err => {
+          this.auctions = [];
         }
-      });
+      );
     });
   }
 
@@ -68,12 +75,17 @@ export class AuctionsComponent implements OnInit {
         return;
       }
       var skip: number = newId * 20;
-      this.getAuctions(skip).subscribe(x => {
-        if (x.length > 0) {
-          this.currentId = newId;
-          this.auctions = x;
+      this.getAuctions(skip).subscribe(
+        x => {
+          if (x.length > 0) {
+            this.currentId = newId;
+            this.auctions = x;
+          }
+        },
+        err => {
+          this.auctions = [];
         }
-      });
+      );
     });
   }
 

@@ -15,6 +15,7 @@ import { MyauctionsComponent } from './myauctions/myauctions.component';
 import { RegisterComponent } from './register/register.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { AuctionCreateComponent } from './auction-create/auction-create.component';
+import { AuctionTransactionFinalizeComponent } from './auction-transaction-finalize/auction-transaction-finalize.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AuctionCreateComponent } from './auction-create/auction-create.componen
     RegisterComponent,
     MyaccountComponent,
     AuctionCreateComponent,
+    AuctionTransactionFinalizeComponent,
   ],
   imports: [
     BrowserModule,

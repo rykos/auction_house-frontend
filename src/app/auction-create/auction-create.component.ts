@@ -52,6 +52,7 @@ export class AuctionCreateComponent implements OnInit {
     if (this.icon) {
       fd.append('icon', this.icon);
     }
+    console.log("before post");
     this.http.post<any>(`${environment.apiUrl}/auctions`, fd).pipe(
       tap(_ => console.log("posting")),
       catchError((e) => { console.log(e); return null; })

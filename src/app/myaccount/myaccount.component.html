@@ -1,1 +1,18 @@
-{{user.username}}
+<div class="container" style="padding: 50px;">
+    <div class="row">
+        <div class="col-3">
+            <div class="bg-info text-white container py-4"><h3 class="text-center">{{user.username}}</h3></div>
+        </div>
+        <div class="col-6">
+            <div class="bg-info text-white container py-4"><h3>Balance: {{user.balance | currency}}</h3></div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3>Bought</h3>
+        </div>
+    </div>
+    <div *ngFor="let auction of boughtActions">
+
+    </div>
+</div>

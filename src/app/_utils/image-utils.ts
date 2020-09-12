@@ -7,6 +7,6 @@ export const IMG_UTILS = {
         if (!img) {
             return `/assets/placeholder-avatar.jpg`;
         }
-        return `${environment.backendUrl}/${img}`
+        return `${environment.apiUrl}/images/${img}`
     }
 }

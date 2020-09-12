@@ -1,3 +1,4 @@
+import { AuctionTransactionFinalizeComponent } from './auction-transaction-finalize/auction-transaction-finalize.component';
 import { AuctionCreateComponent } from './auction-create/auction-create.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { RegisterComponent } from './register/register.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "myauctions", component: MyauctionsComponent, canActivate: [AuthGuard] },
   { path: "auction/:id", component: AuctionDetailsComponent },
   { path: "create", component: AuctionCreateComponent },
+  { path: "buy/:id", component: AuctionTransactionFinalizeComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
