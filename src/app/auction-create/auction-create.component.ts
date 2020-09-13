@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { catchError, combineAll, tap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators, FormControl, Form } from '@angular/forms';
 import { Auction } from './../_models/Auction';
 import { Component, OnInit } from '@angular/core';
@@ -16,8 +17,9 @@ export class AuctionCreateComponent implements OnInit {
   auctionForm: FormGroup;
   icon: File;
   submitted = false;
+  error: any;
 
-  constructor(private FormBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(private FormBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.auctionForm = this.FormBuilder.group({
@@ -52,13 +54,11 @@ export class AuctionCreateComponent implements OnInit {
     if (this.icon) {
       fd.append('icon', this.icon);
     }
-    console.log("before post");
-    this.http.post<any>(`${environment.apiUrl}/auctions`, fd).pipe(
-      tap(_ => console.log("posting")),
-      catchError((e) => { console.log(e); return null; })
-    ).subscribe(response => {
-      console.log(response);
-    }
+    this.http.post<any>(`${environment.apiUrl}/auctions`, fd).subscribe(
+      response => {
+        this.router.navigate([`/auction/${response.id}`]);
+      },
+      err => { this.error = err; return null; }
     );
   }
 }

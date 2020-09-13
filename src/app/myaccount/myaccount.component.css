@@ -1,0 +1,26 @@
+.add-balance:hover > svg{
+    transform: scale(1.25) rotate(-10deg);
+    color: rgb(90, 199, 0);
+    transition: 350ms;
+}
+.add-balance:not(hover) > svg{
+    transform: scale(1);
+    transition: 200ms;
+}
+
+.active-tab{
+    background-color: azure;
+}
+
+.tab{
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+.tab:hover{
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: none;
+}

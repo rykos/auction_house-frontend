@@ -1,18 +1,37 @@
 <div class="container" style="padding: 50px;">
-    <div class="row">
+    <div class="row" style="height: 100px;">
         <div class="col-3">
-            <div class="bg-info text-white container py-4"><h3 class="text-center">{{user.username}}</h3></div>
+            <div class="bg-info text-white container py-4" style="height: 100%;">
+                <h3 class="text-center">{{user.username}}</h3>
+            </div>
         </div>
         <div class="col-6">
-            <div class="bg-info text-white container py-4"><h3>Balance: {{user.balance | currency}}</h3></div>
+            <div class="bg-info text-white container py-4" style="height: 100%;">
+                <h3>Balance: {{user.balance | currency}}</h3>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="bg-primary text-white container add-balance" style="height: 100%; display: flex;">
+                <svg style="height: 75px;" viewBox="0 0 16 16" class="bi bi-cash m-auto" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z" />
+                    <path
+                        d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+                </svg>
+            </div>
         </div>
     </div>
     <div class="row mt-5">
-        <div class="col-12">
+        <div class="col-6 container tab" [class.active-tab]="activeTab === 'bought'" (click)="switchTab('bought')">
             <h3>Bought</h3>
         </div>
-    </div>
-    <div *ngFor="let auction of boughtActions">
 
+        <div class="col-6 container tab" [class.active-tab]="activeTab === 'sold'" (click)="switchTab('sold')">
+            <h3>Sold</h3>
+        </div>
+    </div>
+    <div *ngFor="let auction of auctions; first as IsFirst">
+        <app-auction-bar [auction]="auction"></app-auction-bar>
     </div>
 </div>

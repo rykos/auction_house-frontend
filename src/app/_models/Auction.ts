@@ -5,4 +5,5 @@ export interface Auction {
     description: string;
     price: number;
     creationTime: Date;
+    buyDateTime: Date;
 }

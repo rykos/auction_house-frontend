@@ -29,10 +29,8 @@ export class AuctionsComponent implements OnInit {
       this.currentId = id;
       this.getAuctions(skip).subscribe(
         x => {
-          if (x.length > 0) {
-            this.auctions = x;
-            console.log(this.auctions);
-          }
+          this.auctions = x;
+          console.log(this.auctions);
         },
         err => {
           this.auctions = [];

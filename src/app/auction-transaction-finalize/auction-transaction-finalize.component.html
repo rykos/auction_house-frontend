@@ -25,7 +25,7 @@
                 Current Balance: {{user.balance | currency}}
             </h4>
         </div>
-        <div class="col-6 text-center" [class.bg-danger]="user.balance - auction.price < 0">
+        <div class="col-6 text-center" [class.bg-danger]="user.balance - auction.price < 0" [class.bg-success]="user.balance - auction.price >= 0">
             <h4>
                 New Balance: {{user.balance - auction.price | currency}}
             </h4>
@@ -37,7 +37,7 @@
                 <button class="btn btn-primary container" routerLink="/addbalance"><h1>Increase balance</h1></button>
             </div>
             <div *ngIf="user.balance - auction.price >= 0">
-                <button class="btn btn-success container"><h1>Buy</h1></button>
+                <button class="btn btn-success container" (click)="buy()"><h1>Buy</h1></button>
             </div>
         </div>
     </div>

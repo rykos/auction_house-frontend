@@ -1,7 +1,7 @@
 import { User } from './../_models/User';
 import { environment } from './../../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Auction } from '@app/_models/Auction';
 import { IMG_UTILS } from '@app/_utils/image-utils';
@@ -15,7 +15,7 @@ export class AuctionTransactionFinalizeComponent implements OnInit {
   auction: Auction;
   user: User;
   imageFrom = IMG_UTILS.imageFrom;
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute) {
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(
       params => {
         this.httpClient.get<User>(`${environment.apiUrl}/account/details`).subscribe(x => { this.user = x }, (err) => { return null; });
@@ -28,4 +28,14 @@ export class AuctionTransactionFinalizeComponent implements OnInit {
 
   }
 
+  buy() {
+    console.log({ auctionId: this.auction.id });
+    this.httpClient.post(`${environment.apiUrl}/auctions/buy`, { auctionId: this.auction.id }).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigate(["/account"]);
+      },
+      (err) => { console.log(err); }
+    );
+  }
 }
