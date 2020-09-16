@@ -1,3 +1,4 @@
+import { IncreaseBalanceComponent } from './increase-balance/increase-balance.component';
 import { AuctionTransactionFinalizeComponent } from './auction-transaction-finalize/auction-transaction-finalize.component';
 import { AuctionCreateComponent } from './auction-create/auction-create.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'account', component: MyaccountComponent, canActivate: [AuthGuard] },
+  { path: 'account/addbalance', component: IncreaseBalanceComponent, canActivate: [AuthGuard] },
 
   { path: '**', redirectTo: '' }
 ];

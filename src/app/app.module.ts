@@ -17,6 +17,7 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { AuctionCreateComponent } from './auction-create/auction-create.component';
 import { AuctionTransactionFinalizeComponent } from './auction-transaction-finalize/auction-transaction-finalize.component';
 import { AuctionBarComponent } from './auction-bar/auction-bar.component';
+import { IncreaseBalanceComponent } from './increase-balance/increase-balance.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AuctionBarComponent } from './auction-bar/auction-bar.component';
     AuctionCreateComponent,
     AuctionTransactionFinalizeComponent,
     AuctionBarComponent,
+    IncreaseBalanceComponent,
   ],
   imports: [
     BrowserModule,
